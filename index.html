@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The Tale of Universe Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Import Map -->
+  <script type="importmap">
+  {
+    "imports": {
+      "debounce": "https://esm.sh/lodash-es@4.17.21/debounce"
+    }
+  }
+  </script>
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <h1 class="title">The Tale of Universe : Wiki</h1>
+      <p class="subtitle">You can find anything in here within The Tale of Universe Series...</p>
+    </header>
+
+    <section class="search-section">
+      <div class="search-card">
+        <input id="searchInput" type="search" placeholder="Search characters, places, terms..." autocomplete="off" aria-label="Search The Tale of Universe Wiki">
+        <ul id="suggestions" role="listbox" aria-label="Search suggestions"></ul>
+      </div>
+      <p class="hint">Press Enter to go to the top result</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <small>Community-driven compendium</small>
+  </footer>
+
+  <!-- Settings button + modal -->
+  <button id="settingsBtn" aria-label="Settings" title="Settings"></button>
+  <div id="settingsModal" class="settings-modal" role="dialog" aria-hidden="true">
+    <div class="settings-window" role="document">
+      <header class="settings-header">
+        <h3 id="settingsTitle">Settings</h3>
+        <button id="settingsClose" aria-label="Close">&times;</button>
+      </header>
+      <div class="settings-body">
+        <div class="setting-row">
+          <label>Theme</label>
+          <div class="setting-actions">
+            <button data-theme="light" class="theme-btn">Light</button>
+            <button data-theme="dark" class="theme-btn">Dark</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <label>Language</label>
+          <div class="setting-actions">
+            <button data-lang="en" class="lang-btn">English</button>
+            <button data-lang="zh" class="lang-btn">中文</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="settings.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+:root { --ink:#111; --muted:#666; --ring:#222; --bg:#fff; --card:#fff; }
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin:0; font-family:"Noto Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color:var(--ink); background:var(--bg); }
+
+.wrap { min-height: 100%; display:flex; flex-direction:column; }
+.hero { padding: 12vh 20px 24px; text-align:center; }
+.title { font-weight:800; letter-spacing:-0.02em; font-size: clamp(28px, 5vw, 56px); margin:0 0 8px; }
+.subtitle { margin:0 auto; max-width: 48ch; color:var(--muted); font-size: clamp(14px, 2.2vw, 18px); }
+
+.search-section { display:flex; flex-direction:column; align-items:center; gap:10px; padding: 10px 20px 40px; }
+.search-card { width: min(720px, 92vw); margin-top: 8px; background: var(--card); border:1px solid #eaeaea; border-radius:14px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 14px; transition: box-shadow .2s ease, border-color .2s ease; }
+.search-card:focus-within { border-color:#d0d0d0; box-shadow: 0 16px 44px rgba(0,0,0,0.08); }
+
+#searchInput { width:100%; font-size: clamp(16px, 2.6vw, 20px); padding:14px 16px; border:1px solid #e6e6e6; border-radius:10px; outline:none; transition:border-color .15s ease, transform .08s ease; }
+#searchInput:focus { border-color: var(--ring); transform: translateY(-1px); }
+
+#suggestions { list-style:none; margin:10px 0 0; padding: 6px; border-radius:10px; border:1px solid #efefef; max-height: 260px; overflow:auto; display:none; }
+#suggestions.show { display:block; }
+#suggestions li { padding:10px 12px; border-radius:8px; cursor:pointer; display:flex; align-items:center; gap:10px; transition: background .12s ease, transform .06s ease; }
+#suggestions li:hover { background:#f7f7f7; }
+#suggestions li:active { transform: scale(0.99); }
+#suggestions .match { font-weight:600; }
+
+.content-wrap { padding: 0 20px 40px; }
+.content { display:grid; grid-template-columns: 1fr 320px; gap:24px; align-items:start; }
+.side-column { position: sticky; top: 24px; }
+.portrait-card { border:1px solid #eaeaea; border-radius:12px; padding:12px; background:var(--card); }
+.portrait { display:block; max-width:100%; height:auto; image-rendering:auto; }
+.caption { margin-top:8px; color:var(--muted); font-size:12px; text-align:center; }
+
+.hint { color: var(--muted); font-size: 12px; }
+.foot { padding: 24px; text-align:center; color: var(--muted); border-top:1px solid #f0f0f0; }
+
+/* settings button */
+#settingsBtn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width:52px;
+  height:52px;
+  border-radius:12px;
+  border:1px solid #e6e6e6;
+  background:transparent;
+  backdrop-filter: blur(4px);
+  opacity:0.5;
+  transition:opacity .18s ease, transform .12s ease;
+  cursor:pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+#settingsBtn:hover { opacity:1; transform: translateY(-3px); }
+#settingsBtn::before { content:"\2699"; font-size:20px; display:block; line-height:52px; text-align:center; color:var(--ink); }
+
+/* modal */
+.settings-modal { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.36); opacity:0; pointer-events:none; transition:opacity .18s ease; }
+.settings-modal.show { opacity:1; pointer-events:auto; }
+.settings-window { width: min(420px, 92vw); background:var(--card); border-radius:12px; padding:12px; box-shadow:0 24px 60px rgba(0,0,0,0.18); border:1px solid #eaeaea; }
+.settings-header { display:flex; align-items:center; justify-content:space-between; padding:8px 4px; border-bottom:1px solid #f3f3f3; }
+.settings-body { padding:12px 4px; display:flex; flex-direction:column; gap:12px; }
+.setting-row { display:flex; align-items:center; justify-content:space-between; }
+.setting-actions button { padding:8px 10px; border-radius:8px; border:1px solid #e6e6e6; background:transparent; cursor:pointer; margin-left:6px; }
+.setting-actions button.active { background:#111; color:#fff; border-color:#111; }
+
+/* dark theme overrides */
+:root[data-theme="dark"] { --bg:#0b0b0c; --card:#0f1112; --ink:#e8e8e8; --muted:#a9a9a9; --ring:#fff; }
