@@ -61,5 +61,9 @@ body { margin:0; font-family:"Noto Sans", system-ui, -apple-system, Segoe UI, Ro
 .setting-actions button { padding:8px 10px; border-radius:8px; border:1px solid #e6e6e6; background:transparent; cursor:pointer; margin-left:6px; }
 .setting-actions button.active { background:#111; color:#fff; border-color:#111; }
 
+.bgm-toast{position:fixed;left:20px;bottom:20px;z-index:9999;background:var(--card);color:var(--ink);border:1px solid #e6e6e6;border-radius:10px;padding:10px 12px;box-shadow:0 8px 24px rgba(0,0,0,.12);opacity:0;transform:translateY(6px);transition:opacity .18s ease, transform .18s ease;pointer-events:none;}
+.bgm-toast.show{opacity:1;transform:translateY(0);}
+:root[data-theme="dark"] .bgm-toast{border-color:#242424;}
+
 /* dark theme overrides */
 :root[data-theme="dark"] { --bg:#0b0b0c; --card:#0f1112; --ink:#e8e8e8; --muted:#a9a9a9; --ring:#fff; }
